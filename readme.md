@@ -1,5 +1,7 @@
 # Node-RED Mixing Station Integration
 
+This is a work in progress
+
 A Node-RED module to interact with Mixing Station's APIs, allowing you to control audio mixers through Mixing Station.
 
 ## Overview

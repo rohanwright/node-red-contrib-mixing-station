@@ -10,6 +10,10 @@
     "websocket",
     "api"
   ],
+  "repository": {
+        "type": "git",
+        "url": "git@github.com:rohanwright/node-red-contrib-mixing-station"
+    },
   "node-red": {
     "nodes": {
       "mixing-station-config": "nodes/mixing-station-config.js",
@@ -19,6 +23,10 @@
   },
   "author": "Rohan Wright",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rohanwright/node-red-contrib-mixing-station/issues"
+  },
+  "homepage": "https://github.com/rohanwright/node-red-contrib-mixing-station/blob/main/readme.md",
   "dependencies": {
     "axios": "^1.6.2",
     "ws": "^8.14.2"
