@@ -2,6 +2,10 @@
   "name": "@rohanwright/node-red-contrib-mixing-station",
   "version": "1.0.0",
   "description": "Node-RED nodes to interact with Mixing Station via REST API and WebSockets",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "node-red",
     "mixing-station",
