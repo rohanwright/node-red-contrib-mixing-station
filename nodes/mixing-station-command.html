@@ -1,0 +1,82 @@
+<script type="text/html" data-template-name="mixing-station-command">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-server"></i> Server</label>
+        <input type="text" id="node-input-server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-path"><i class="fa fa-sitemap"></i> Path</label>
+        <input type="text" id="node-input-path" placeholder="/console/data/ch.0.mix.lvl">
+    </div>
+    <div class="form-row">
+        <label for="node-input-method"><i class="fa fa-wrench"></i> Method</label>
+        <select id="node-input-method">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-useWebSocket"><i class="fa fa-exchange"></i> Use WebSocket</label>
+        <input type="checkbox" id="node-input-useWebSocket" style="display:inline-block; width:auto; vertical-align:top;">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="mixing-station-command">
+    <p>Sends commands to Mixing Station via REST API or WebSockets.</p>
+    
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">object</span></dt>
+        <dd>The body of the request to send to Mixing Station.</dd>
+        <dt>path <span class="property-type">string</span></dt>
+        <dd>Optional. Overrides the configured path.</dd>
+        <dt>method <span class="property-type">string</span></dt>
+        <dd>Optional. Overrides the configured HTTP method.</dd>
+        <dt>useWebSocket <span class="property-type">boolean</span></dt>
+        <dd>Optional. Overrides whether to use WebSocket or HTTP.</dd>
+    </dl>
+    
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">object</span></dt>
+        <dd>The response from Mixing Station.</dd>
+    </dl>
+    
+    <h3>Details</h3>
+    <p>This node sends commands to Mixing Station using either the REST API or WebSockets. It allows you to get or set mixer parameters.</p>
+    <p>For setting parameters, you typically use a POST request with a payload containing the new value.</p>
+    <p>For example, to set the fader level of channel 1:</p>
+    <pre>
+    {
+      "path": "/console/data/ch.0.mix.lvl",
+      "method": "POST",
+      "body": -5  // dB value
+    }
+    </pre>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('mixing-station-command', {
+        category: 'Mixing Station',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: "" },
+            server: { value: "", type: "mixing-station-config", required: true },
+            path: { value: "" },
+            method: { value: "GET" },
+            useWebSocket: { value: false }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "white-globe.png",
+        label: function() {
+            return this.name || "MS Command";
+        },
+        paletteLabel: "MS Command"
+    });
+</script>

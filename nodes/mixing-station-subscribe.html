@@ -1,0 +1,66 @@
+<script type="text/html" data-template-name="mixing-station-subscribe">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-server"></i> Server</label>
+        <input type="text" id="node-input-server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-path"><i class="fa fa-sitemap"></i> Path</label>
+        <input type="text" id="node-input-path" placeholder="ch.*.mix.lvl">
+    </div>
+    <div class="form-row">
+        <label for="node-input-format"><i class="fa fa-wrench"></i> Format</label>
+        <select id="node-input-format">
+            <option value="val">Plain Value</option>
+            <option value="norm">Normalized (0-1)</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="mixing-station-subscribe">
+    <p>Subscribes to parameter updates from Mixing Station via WebSocket.</p>
+    
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>path <span class="property-type">string</span></dt>
+        <dd>Optional. The parameter path to subscribe to (e.g., "ch.*.mix.lvl").</dd>
+        <dt>format <span class="property-type">string</span></dt>
+        <dd>Optional. The value format: "val" for plain values or "norm" for normalized values.</dd>
+    </dl>
+    
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">object</span></dt>
+        <dd>The parameter values and updates received from Mixing Station.</dd>
+        <dt>topic <span class="property-type">string</span></dt>
+        <dd>The path of the message received from Mixing Station.</dd>
+    </dl>
+    
+    <h3>Details</h3>
+    <p>This node subscribes to parameter updates from Mixing Station using WebSockets. It allows you to monitor changes to mixer parameters in real-time.</p>
+    <p>You can specify a parameter path using wildcards, such as "ch.*.mix.lvl" to monitor the fader levels of all channels.</p>
+    <p>The format can be either "val" for plain values (e.g., -5dB) or "norm" for normalized values (0-1).</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('mixing-station-subscribe', {
+        category: 'Mixing Station',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: "" },
+            server: { value: "", type: "mixing-station-config", required: true },
+            path: { value: "" },
+            format: { value: "val" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "bridge.png",
+        label: function() {
+            return this.name || "MS Subscribe";
+        },
+        paletteLabel: "MS Subscribe"
+    });
+</script>
