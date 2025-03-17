@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-mixing-station",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node-RED nodes to interact with Mixing Station via REST API and WebSockets",
   "private": false,
   "publishConfig": {

@@ -1,8 +1,8 @@
 # Node-RED Mixing Station Integration
 
-This is a work in progress
-
 A Node-RED module to interact with Mixing Station's APIs, allowing you to control audio mixers through Mixing Station.
+Mixing Station is a fantastic app created by @davidgiga1993 and can be found at https://mixingstation.app/
+It can connect to a variaty of Audio Consoles by Allen & Heath, Behringer, Yamaha, Midas, Etc.
 
 ## Overview
 
