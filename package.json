@@ -1,5 +1,5 @@
 {
-  "name": "@rohanwright/node-red-contrib-mixing-station",
+  "name": "node-red-contrib-mixing-station",
   "version": "1.0.0",
   "description": "Node-RED nodes to interact with Mixing Station via REST API and WebSockets",
   "private": false,
